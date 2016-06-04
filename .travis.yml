@@ -1,17 +1,10 @@
 language: node_js
-sudo: false
 node_js:
 - '4'
 branches:
   only:
   - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_74e343421d1f_key -iv $encrypted_74e343421d1f_iv
-  -in .travis\/id_rsa.enc -out ~\/.ssh/id_rsa -d
-- chmod 600 ~\/.ssh/id_rsa
-- eval $(ssh-agent)
-- ssh-add ~\/.ssh/id_rsa
-- cp .travis/ssh_config ~\/.ssh/config
 - npm install -g hexo-cli
 install:
 - npm install
@@ -20,4 +13,5 @@ script:
 after_success:
 - git config --global user.name "Peng:-)"
 - git config --global user.email "liyp.yunpeng@gmail.com"
+- sed -i'' "/^ *repo/s~github\.com~${GH_TOKEN}@github.com~" _config.yml
 - hexo deploy
