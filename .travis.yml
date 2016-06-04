@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '4'
+branches:
+  only:
+  - master
+before_install:
+- npm install -g hexo-cli
+install:
+- npm install
+script:
+- git submodule init
+- git submodule update
+- hexo generate
+after_success:
+- git config --global user.name "Peng:-)"
+- git config --global user.email "liyp.yunpeng@gmail.com"
+- sed -i'' "/^ *repo/s~github\.com~${GH_TOKEN}@github.com~" _config.ym
+- hexo deploy --silent
+env:
+  global:
+    secure: aNOV24mktQdHRBsUR8w8CvYV8AeATZ0drq/6lpKFOw9R/1unJDHwmpPisOA9aULGJvdTx4k93rmEJwDwiKVh4+ZwgwgGaP9bE7BbXtalpTxszhBBqKtkb/E5j9Np5olxxVuK9NLS3bW1E8znIemHS03XuN2XoCAMVsKuHn+UGo0yU5iAlGRO187ScnoDUKGdR8Hmt0bAbgXQ86UE7TnhrRLflbxyomGi81ukHp68XHQAFenmqs/n2SDW2L2yoSpO5Qz93tM7e1yNZB+eAwDNWX4RvimUNBEiXFfAu0iTLuu+gzHfyswZdDic0B6liegW1gH/AjYJE5HEjQqOCImmid+wsh5OxDOHezNbUWepsYlXSZRH71lrDbMfYG1CXI4REzj2dPozjuYb/BbRwFOdC2R8AIyjnujeX17aHq9TILlBI6DK/OnhaL7hM/jw3Q1ULlWlFUlhQ0qENYaArUAczR0KaQVU7AkUqQhzidvKj7XAnmDu4mysmUhfO5S55LuJ8n/o4Y7miGddMGFvHRdU2et9OFZ8aeYZF9Y5OsLhofOp7JEUK8s4ZxDvFDPJZ7jKkbqhVQiTlLarcz51WxM/UALDFhSjIfEtuQhhtpzVtm8pFAxKAxrNBeHt9Am1qFG2ODqHhpH2JVSsGtU6JL3wuSt6NmKUNcfraIFYjrPMBpc=
