@@ -13,5 +13,5 @@ script:
 after_success:
 - git config --global user.name "Peng:-)"
 - git config --global user.email "liyp.yunpeng@gmail.com"
-- sed -i'' "/^ *repo/s~git@github\.com~https://${GH_TOKEN}@github.com~" _config.yml
+- sed -i'' "/^ *repo/s~git@github.com:~https://${GH_TOKEN}@github.com/~" _config.yml
 - hexo deploy
