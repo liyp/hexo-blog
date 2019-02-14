@@ -4,7 +4,7 @@ date: 2016-01-14 23:57:55
 tags: 吾日三省
 ---
 
-![do_more_think_less.png](http://36.media.tumblr.com/22e3fac709423ebce610e6db7e1e01c2/tumblr_mmpql7J3Wm1s6bw99o1_1280.png)
+![do_more_think_less.png](/images/domorethinkless.png)
 
 -----
 
